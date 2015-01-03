@@ -4,11 +4,18 @@ class DTAFrame:
     def __init__(self, mapping, values):
         self.values = values
         self.mapping = mapping
+        self.keys = [i[0] for i in mapping]
     
     def getValues(self):
         return self.values
+    
+    def getValue(self, key):
+        idx = self.keys.index(key)
+        return self.values[idx]
+    
     def getMapping(self):
         return self.mapping
+    
     def __str__(self):
         res = ""
         for i in range(len(self.values)):
@@ -79,7 +86,7 @@ class CanClient:
         fr.setBody(body)
         return fr
         
-        
+"""   
 ser = serial.Serial('/dev/ttyUSB0', 1228800)
 try:
     client = CanClient(ser)
@@ -94,5 +101,7 @@ try:
         i = i+1
 finally:
     ser.close()
+    
+    """
     
     
