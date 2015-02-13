@@ -72,8 +72,10 @@ def updater(output):
     finally:
             ser.close()
 
-if __name__ == '__main__':
+def run():
     app = wx.App()
     dash  = Dash(None, 'Dash', full=False)
     thread.start_new_thread(updater,(dash,))
     app.MainLoop()
+if __name__ == '__main__':
+    run()
